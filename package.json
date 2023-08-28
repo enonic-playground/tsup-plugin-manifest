@@ -1,0 +1,55 @@
+{
+  "author": "Christian Andreas Westgaard <cwe@enonic.com>",
+  "bugs": {
+    "url": "https://github.com/playground/tsup-plugin-manifest/issues"
+  },
+  "dependencies": {
+    "colorette": "^2.0.20"
+  },
+  "description": "Plugin for tsup to generate a manifest.json per format",
+  "devDependencies": {
+    "@jest/globals": "^29.5.0",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^20.1.2",
+    "del-cli": "^5.0.0",
+    "esbuild": "^0.17.18",
+    "jest": "^29.5.0",
+    "rimraf": "^5.0.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": [
+    "tsup",
+    "plugin",
+    "manifest",
+    "esbuild",
+    "asset hash",
+    "cache bust",
+    "contenthash"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@enonic/tsup-plugin-manifest",
+  "peerDependencies": {
+    "esbuild": "~0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/playground/tsup-plugin-manifest.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "clean": "npx del dist",
+    "prepack": "pnpm install && pnpm clean && pnpm test",
+    "test": "jest --coverage"
+  },
+  "types": "dist/index.d.ts",
+  "version": "0.0.1"
+}
