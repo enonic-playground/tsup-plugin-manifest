@@ -11,7 +11,7 @@ yarn add --dev @enonic/tsup-plugin-manifest
 ```
 
 ```sh
-pnpm install --dev @enonic/tsup-plugin-manifest
+pnpm add --save-dev @enonic/tsup-plugin-manifest
 ```
 
 
@@ -27,7 +27,7 @@ export default defineConfig((options) => {
 			TsupPluginManifest({
 				// Manipulate the manifest keys and values.
 				generate: (entries) => {
-					const newEntries = {};
+					const newEntries = {} as typeof entries;
 					Object.entries(entries).forEach(([k,v]) => {
 						// console.log(k,v);
 						const ext = v.split('.').pop() as string;

@@ -90,10 +90,10 @@ export = (options: TsupPluginManifestOptions): Plugin => ({
 			}
 
 			const format = build.initialOptions.define?.['TSUP_FORMAT'].replace(/"/g,'')//.toUpperCase();
-			if (!format) throw new Error('TSUP_FORMAT not defined');
+			if (!format) throw new Error('TSUP_FORMAT not defined!');
 
 			if (outdir === undefined && outfile === undefined) {
-				throw new Error("You must specify an 'outdir' when generating a manifest file.");
+				throw new Error("You must specify an 'outdir' when generating a manifest file!");
 			}
 
 			const mappings = new Map<string, string>();
