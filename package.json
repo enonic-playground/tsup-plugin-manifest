@@ -52,8 +52,9 @@
     "check": "tsc --noEmit",
     "prebuild": "pnpm clean",
     "prepack": "pnpm install && pnpm clean && pnpm test && pnpm build",
+    "prepublishOnly": "node setversion.cjs",
     "test": "jest --coverage"
   },
   "types": "dist/index.d.ts",
-  "version": "0.0.1"
+  "version": "0.0.0"
 }
