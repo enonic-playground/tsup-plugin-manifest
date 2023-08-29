@@ -4,7 +4,7 @@ import type {
 	Plugin,
 	PluginBuild
 } from 'esbuild';
-import type { TsupPluginManifestOptions } from './index.d';
+import type TsupPluginManifestOptions from './TsupPluginManifestOptions.d';
 
 
 import {
@@ -20,11 +20,6 @@ import {
 	resolve,
 } from 'path';
 import { TextEncoder } from 'util';
-// import {
-// 	createLogger,
-// 	setSilent
-// } from './log';
-// import { reportSize } from './reportSize';
 
 
 const PLUGIN_NAME = 'tsup-plugin-manifest';
@@ -79,13 +74,10 @@ export = (options: TsupPluginManifestOptions): Plugin => ({
 		build.initialOptions.entryNames = '[dir]/[name]-[hash]';
 		build.initialOptions.metafile = true;
 		const {
-			// absWorkingDir = process.cwd(),
 			outdir,
 			outfile,
-			// logLevel,
 			write: shouldWrite = true
 		} = build.initialOptions;
-		// setSilent(logLevel === 'silent');
 
 		build.onEnd((result: BuildResult) => {
 			// Only proceed if the build result does not have any errors.
@@ -141,7 +133,6 @@ export = (options: TsupPluginManifestOptions): Plugin => ({
 
 			const fullPath = resolve(`${finalOutdir}/${filename}`);
 
-			// const logger = createLogger(PLUGIN_NAME);
 			const {
 				generate
 			} = options;
@@ -165,7 +156,6 @@ export = (options: TsupPluginManifestOptions): Plugin => ({
 				});
 				return;
 			}
-			// reportSize(logger, format, { fullPath: statSync(fullPath).size });
 			return promises.writeFile(fullPath, text);
 		}); // onEnd
 	} // setup

@@ -11,6 +11,7 @@
     "@jest/globals": "^29.5.0",
     "@types/jest": "^29.5.1",
     "@types/node": "^20.1.2",
+    "cpy-cli": "^5",
     "del-cli": "^5.0.0",
     "esbuild": "^0.17.18",
     "jest": "^29.5.0",
@@ -44,10 +45,12 @@
     "url": "git+https://github.com/playground/tsup-plugin-manifest.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npx cpy src/TsupPluginManifestOptions.d.ts dist --flat",
     "build:watch": "tsc --watch",
     "clean": "npx del dist",
-    "prepack": "pnpm install && pnpm clean && pnpm test",
+    "check": "tsc --noEmit",
+    "prebuild": "pnpm clean",
+    "prepack": "pnpm install && pnpm clean && pnpm test && pnpm build",
     "test": "jest --coverage"
   },
   "types": "dist/index.d.ts",

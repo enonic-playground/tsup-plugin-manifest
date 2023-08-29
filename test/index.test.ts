@@ -1,4 +1,4 @@
-import type { TsupPluginManifestOptions } from '../src/index.d';
+import type TsupPluginManifestOptions from '../src/TsupPluginManifestOptions.d';
 
 
 import {
