@@ -50,6 +50,16 @@ export default defineConfig((options) => {
 ```
 
 
+### Options
+
+#### `options?.generate`
+
+Type: `(entries: Record<string,string>) => Record<string,string>`
+
+Callback used to manipulate the content of the produced manifest file.
+
+
+
 ## Release
 
 ````
@@ -59,15 +69,6 @@ git push origin vX.Y.Z
 
 This will trigger release & publish on NPM.
 
-
-
-## Options
-
-### `options?.generate`
-
-Type: `(entries: Record<string,string>) => Record<string,string>`
-
-Callback used to manipulate the content of the produced manifest file.
 
 ## License
 
