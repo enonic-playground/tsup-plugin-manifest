@@ -49,6 +49,18 @@ export default defineConfig((options) => {
 }
 ```
 
+
+## Release
+
+````
+git tag vX.Y.Z
+git push origin vX.Y.Z
+````
+
+This will trigger release & publish on NPM.
+
+
+
 ## Options
 
 ### `options?.generate`
